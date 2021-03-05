@@ -67,13 +67,15 @@ void reverse_1d_array(vector<int> &arr) {
 
 // Задание 5
 void reverse_1d_array(int *arr_begin, int *arr_end) {
-    int length = arr_end - arr_begin;
-    for (int i = 0; i < length / 2; ++i) {
-        int ph = *(arr_begin + i);
-        *(arr_begin + i) = *(arr_end - i - 1);
-        *(arr_end - i - 1) = ph;
+    if (arr_begin && arr_end) {
+        while (arr_end > arr_begin) {
+            swap_args(arr_begin, arr_end);
+            arr_begin++;
+            arr_end--;
+        }
     }
 }
+
 
 // Задание 6
 int *find_max_element(int *arr, int size) {
