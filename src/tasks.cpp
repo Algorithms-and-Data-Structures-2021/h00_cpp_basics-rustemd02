@@ -75,6 +75,7 @@ void reverse_1d_array(int *arr_begin, int *arr_end) {
     }
 }
 
+
 // Задание 6
 int *find_max_element(int *arr, int size) {
     if (!arr | (size <= 0)) {
