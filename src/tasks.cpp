@@ -68,10 +68,10 @@ void reverse_1d_array(vector<int> &arr) {
 // Задание 5
 void reverse_1d_array(int *arr_begin, int *arr_end) {
     int length = arr_end - arr_begin;
-    for (int i = 0; i < length / 2 - 1; ++i) {
+    for (int i = 0; i < length / 2; ++i) {
         int ph = *(arr_begin + i);
-        *(arr_begin + i) = *(arr_end - i);
-        *(arr_end - i) = ph;
+        *(arr_begin + i) = *(arr_end - i - 1);
+        *(arr_end - i - 1) = ph;
     }
 }
 
@@ -80,11 +80,12 @@ int *find_max_element(int *arr, int size) {
     if (!arr | (size <= 0)) {
         return nullptr;
     }
-    int *max = &arr[0];
-    for (int index = 0; index < size; index++) {
-        if (&arr[index] > max) {
-            max = &arr[index];
+    int *max = arr;
+    for (int i = 0; i < size; i++) {
+        if (*arr > *max) {
+            max = arr;
         }
+        arr += 1;
     }
     return max;
 }
